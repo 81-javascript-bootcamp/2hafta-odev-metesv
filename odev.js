@@ -4,18 +4,17 @@
 
 **/
 
-var car = { 
-    registrationNumber: "GA12345",
-    brand: "Toyota",
+const car = {
+  registrationNumber: "GA12345",
+  brand: "Toyota",
 
-    displayDetails: function(){
-        console.log(this.registrationNumber + " " + this.brand);
-    }
-}
+  displayDetails() {
+    console.log(this.registrationNumber + " " + this.brand);
+  },
+};
 
-var myCarDetails =  car.displayDetails;
-myCarDetails();
-
+const myCarDetails = car.displayDetails;
+myCarDetails.call(car);
 
 /** 
 
@@ -28,10 +27,8 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 **/
 
 function isValidName(name) {
-  /// your code here
+  return typeof name === "string" && name.trim().length > 2;
 }
-
-
 
 /**
 
@@ -41,15 +38,18 @@ function isValidName(name) {
 **/
 
 const book = {
-  title: 'Brave New World',
-  author: 'Aldous Huxley',
-}
+  title: "Brave New World",
+  author: "Aldous Huxley",
+};
 
 function summary(genre, year) {
   console.log(
-    `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`,
-  )
+    `${this.title} was written by ${this.author}. It is a ${genre} novel written in ${year}.`
+  );
 }
+
+summary.call(book, "dystopian", 1932);
+
 
 
 
