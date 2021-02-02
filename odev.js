@@ -27,7 +27,7 @@ bosluk icerebilir, ancak bosluk haridcindeki isimler en az 2 karakterden olusmal
 **/
 
 function isValidName(name) {
-  return typeof name === "string" && name.trim().length > 2;
+  return typeof name === "string" && name.replace(/\s/g, "").length >= 2;
 }
 
 /**
